@@ -1,0 +1,6 @@
+<div class="spending-menu">
+    <a *ngFor="let spending of spendingList"
+        routerLink="/detail/{{spending.id}}">
+        {{spending.title}}
+    </a>
+  </div>
