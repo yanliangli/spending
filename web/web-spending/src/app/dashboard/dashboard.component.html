@@ -1,6 +1,16 @@
-<div class="spending-menu">
-    <a *ngFor="let spending of spendingList"
-        routerLink="/detail/{{spending.id}}">
-        {{spending.title}}
-    </a>
-  </div>
+<div class="spending-button-container">
+    <h1>Spending List</h1>
+    <button mat-raised-button class="spending-button">
+      Add data
+    </button>
+</div>
+
+<mat-table [dataSource]="spendingList" class="mat-elevation-z8">
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+      <mat-cell *matCellDef="let element" (click) = "navigateTo(element.id)"> {{element.title}} </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
