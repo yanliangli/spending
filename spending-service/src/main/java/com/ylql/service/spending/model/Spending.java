@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -24,18 +25,19 @@ public class Spending {
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     @Column(name = "id", updatable = false, nullable = false)
+    @Type(type="org.hibernate.type.UUIDCharType")
     private UUID id;
 
     private String title;
 
-    @OneToMany(mappedBy = "spending")
+    @OneToMany(mappedBy = "spending",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     List<Transaction> transactions;
 
     @CreationTimestamp
-    @JsonFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date createDate;
 
-    @JsonFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @UpdateTimestamp
     private Date lastModifiedDate;
 }

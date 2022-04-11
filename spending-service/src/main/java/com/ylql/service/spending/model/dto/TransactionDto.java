@@ -14,7 +14,7 @@ public class TransactionDto {
 
     private double amount;
 
-    private String Category;
+    private String category;
 
     private Date date;
 

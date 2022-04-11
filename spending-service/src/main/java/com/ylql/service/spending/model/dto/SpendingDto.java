@@ -1,15 +1,15 @@
 package com.ylql.service.spending.model.dto;
 
-import com.ylql.service.spending.model.Transaction;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Date;
 
 @Getter
 @Setter
 public class SpendingDto {
+    private String id;
     private String title;
-
-    List<Transaction> transactions;
+    private Date createDate;
+    private Date lastModifiedDate;
 }
