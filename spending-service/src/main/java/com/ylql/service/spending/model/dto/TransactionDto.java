@@ -1,5 +1,6 @@
 package com.ylql.service.spending.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.Date;
@@ -16,6 +17,7 @@ public class TransactionDto {
 
     private String category;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
     private String personName;
