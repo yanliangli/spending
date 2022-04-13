@@ -8,8 +8,13 @@
 
 .spending-button-container {
     padding-bottom: 16px;
+    margin-left: 1%;
 }
   
 .spending-button {
     margin-left: 8px;
+}
+
+table {
+    width: 100%;
 }
